@@ -22,7 +22,7 @@ function RecordSetter() {
   };
 
   return (
-    <div className={styles.content}>
+    <div className={styles.innercontent}>
       <div className={styles.mt2}>
         {record.content ? (
           <div className={styles.flexCol}>
@@ -46,7 +46,7 @@ function RecordSetter() {
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className={styles.mt2}
+        className={styles.input}
       />
       <button className={styles.button} onClick={() => updateRecordName(name)}>Update</button>
     </div>
@@ -107,9 +107,13 @@ function Home() {
         <div className={styles.connection}>
           {connection.status === "connected" ? (
             <div>
+              <span>Your 3ID is</span>
+              <br></br>
               <span className={styles.subtitle}>
-                Your 3ID is {connection.selfID.id}
+                {connection.selfID.id}
               </span>
+              <br></br>
+              <br></br>
               <RecordSetter />
             </div>
           ) : (
